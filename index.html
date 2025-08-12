@@ -1,0 +1,108 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Faith Quest</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<meta name="theme-color" content="#0b63a6">
+</head>
+<body>
+
+<!-- SPLASH / INTRO -->
+<div id="splash" class="screen splash">
+  <div id="splash-center">
+    <div id="icon-holder" class="icon-holder hidden">
+      <img src="icons/icon-192.png" alt="Faith Quest" id="splashIcon">
+    </div>
+    <div id="title-wrap" aria-hidden="true"></div>
+  </div>
+</div>
+
+<!-- MAIN WELCOME -->
+<main id="main" class="screen hidden">
+  <header class="top">
+    <img class="logo" src="icons/icon-72.png" alt="Faith Quest logo">
+    <h1>Faith Quest</h1>
+    <div class="tag">Grow in Grace &amp; Truth</div>
+  </header>
+
+  <section class="card center welcome-card">
+    <div class="hero">
+      <h2>Sharpen your knowledge of the Bible</h2>
+      <p class="lead">Pick a mode and start the quest!</p>
+    </div>
+
+    <div id="startButtons" class="actions">
+      <button class="btn primary large" onclick="goToMode()">Start Quiz</button>
+      <button class="btn large" onclick="openAbout()">About</button>
+    </div>
+
+    <div class="verse-card">
+      <div id="verse" class="verse">Loading verse...</div>
+    </div>
+  </section>
+
+  <!-- MODE SELECTION -->
+  <section id="modeCard" class="card hidden">
+    <h3>Choose how you want to play</h3>
+    <div class="row">
+      <button class="btn" onclick="showBooks('old')">Old Testament</button>
+      <button class="btn" onclick="showBooks('new')">New Testament</button>
+      <button class="btn" onclick="showCategories()">Categories</button>
+    </div>
+    <div id="byOptions" class="mt"></div>
+  </section>
+
+  <!-- LEVEL selection is shown after choosing book/category -->
+  <section id="levelCard" class="card hidden">
+    <h3>Choose Difficulty</h3>
+    <div class="row">
+      <button class="btn" onclick="startWithLevel('easy')">Easy</button>
+      <button class="btn" onclick="startWithLevel('moderate')">Moderate</button>
+      <button class="btn" onclick="startWithLevel('difficult')">Difficult</button>
+    </div>
+  </section>
+
+  <!-- QUIZ SCREEN -->
+  <section id="quizCard" class="card hidden">
+    <div class="quiz-top">
+      <div id="progressWrap"><div id="progressBar" class="progressBar"></div></div>
+      <div id="scoreBoard" class="small">Score: 0</div>
+    </div>
+    <div id="qcard" class="qcard"></div>
+    <div class="controls">
+      <div class="controlBtns">
+        <button class="btn" onclick="prevQ()">Previous</button>
+        <button class="btn" onclick="nextQ()">Next</button>
+        <button class="btn" onclick="endQuiz()">End</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section id="resultCard" class="card hidden">
+    <h3>Your Result</h3>
+    <div id="resultText"></div>
+    <div class="actions">
+      <button class="btn primary" onclick="restart()">Play Again</button>
+      <button class="btn" onclick="shareScore()">Share Score</button>
+    </div>
+    <div class="mt"><h4>Review Wrong Answers</h4><div id="wrongList"></div></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="aboutCard" class="card hidden">
+    <h3>About Faith Quest</h3>
+    <p>Faith Quest helps you learn scripture with quick quizzes grouped by book and topic.</p>
+    <p class="small">Admin PIN: <strong>1234</strong> — edit <code>questions.js</code> to add questions.</p>
+  </section>
+
+  <footer class="footer">Made for Faith Quest • Offline after first load</footer>
+</main>
+
+<script src="questions.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
